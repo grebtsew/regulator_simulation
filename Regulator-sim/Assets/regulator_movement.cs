@@ -9,12 +9,19 @@ public class regulator_movement : MonoBehaviour {
     public Slider Kp;
     public Slider Ki;
     public Slider Kd;
-    public Slider T;
-    public GameObject signal;
+    public signal_movement signal;
     float s = 0;
+    List<float> s_list = new List<float>();
+    private float curr = 0;
+    float error = 0;
+    float integral = 0;
+    float derivate = 0;
+    float old_error = 0;
+    float _dt = 1;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -22,7 +29,22 @@ public class regulator_movement : MonoBehaviour {
 	void Update () {
 
         s = signal.transform.position.y;
+
+        error = s - curr;
+
+        if(signal.freq_counter != 0)
+        _dt = signal.freq_counter;
         
+        // integral
+        integral += error * _dt;
+
+        // derivate
+        derivate = (error - old_error) /_dt;
+
+
+        // time ++
+        //_dt++;
+        old_error = error;
 
         switch (dropdown.value)
         {
@@ -30,26 +52,39 @@ public class regulator_movement : MonoBehaviour {
 
             // p
             case 0:
+                //old
                 // Kp/(s^2 + Ts + Kp)
-                this.transform.position = new Vector3(transform.position.x, Kp.value / (Mathf.Pow(s,2) + T.value * s + Kp.value));
+                //new
+                // Kp*e(t)
+                curr = Kp.value * error;
+                this.transform.position = new Vector3(transform.position.x, curr );
                 break;
             // pd
             case 1:
+                // old
                 // (Kp + s*Kd)/(s^2 + (1 + Kd)s + Kp)
-                this.transform.position = new Vector3(transform.position.x, (Kp.value + s*Kd.value)/ (Mathf.Pow(s, 2) + (1 + Kd.value)*s + Kp.value));
-
+                // new
+                // Kp*e(t) + Kd*derivate
+                curr = Kp.value * error + Kd.value * derivate;
+                this.transform.position = new Vector3(transform.position.x, curr);
                 break;
             // pi
             case 2:
+                //old
                 //(Kp + sKi)/s^2 + (1 + Kp)s + Ki)
-                this.transform.position = new Vector3(transform.position.x, (Kp.value + Ki.value*s) / (Mathf.Pow(s, 2) + (1 + Kp.value) * s + Ki.value));
-
+                //new
+                // kp*e(t) + Ki*integral
+                curr = Kp.value * error + Ki.value * integral;
+                this.transform.position = new Vector3(transform.position.x, curr);
                 break;
             // pid
             case 3:
+                //old
                 //(Kp)/(s^3 + (1 + Kd)s^2 + (1 + Kp)s + Ki)
-                this.transform.position = new Vector3(transform.position.x, Kp.value / (Mathf.Pow(s, 3) + (1 + Kd.value) * Mathf.Pow(s, 3) + (1 + Kp.value)*s + Ki.value));
-
+                //new
+                //kp*e(t) + Kd*derivate + Ki*integral
+                curr = Kp.value * error + Kd.value * derivate + Ki.value * integral;
+                this.transform.position = new Vector3(transform.position.x, curr);
                 break;
         }
 

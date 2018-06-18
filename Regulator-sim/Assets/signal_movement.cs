@@ -11,9 +11,9 @@ public class signal_movement : MonoBehaviour {
     public Slider min_randomslider;
     public Slider max_randomslider;
 
-    float freq_counter = 0;
+    public float freq_counter = 0;
     bool b = false;
-    int delta_signal;
+    float delta_signal;
    
     // Use this for initialization
     void Start () {
@@ -22,10 +22,10 @@ public class signal_movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        delta_signal = (int) valueslider.value  ;
+        delta_signal =  valueslider.value  ;
         
         // Random
-        if (delta_signal == 0)
+        if (delta_signal == -1)
         {
             delta_signal = Random.Range( (int)min_randomslider.value, (int) max_randomslider.value);
          }
