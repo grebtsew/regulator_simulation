@@ -11,7 +11,6 @@ public class regulator_movement : MonoBehaviour {
     public Slider Kd;
     public signal_movement signal;
     float s = 0;
-    List<float> s_list = new List<float>();
     private float curr = 0;
     float error = 0;
     float integral = 0;

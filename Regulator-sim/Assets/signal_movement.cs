@@ -58,7 +58,6 @@ public class signal_movement : MonoBehaviour {
 
         } else
         {
-            Debug.Log("hej");
             // freq
             if (freq_counter > freqslider.value)
             {
