@@ -11,8 +11,8 @@ public class calcscore : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-            score = Mathf.Abs(Vector3.Distance(obj1.transform.position, obj2.transform.position));
-
+        score = Mathf.Abs(Vector3.Distance(obj1.transform.position, obj2.transform.position));
+        
         score_text.text = score.ToString();
 
     }

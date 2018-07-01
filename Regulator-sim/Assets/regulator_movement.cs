@@ -17,6 +17,7 @@ public class regulator_movement : MonoBehaviour {
     float derivate = 0;
     float old_error = 0;
     float _dt = 1;
+    public goal_movement goal;
 
 
     // Use this for initialization
