@@ -499,7 +499,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 11bc8004ec5000844897c68f842697b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -581,6 +581,7 @@ MonoBehaviour:
   Kd: {fileID: 1219883019}
   signal: {fileID: 85416741}
   goal: {fileID: 0}
+  time_value: 0
 --- !u!1 &83039324
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +731,9 @@ MonoBehaviour:
   step_mode: {fileID: 11439396}
   min_randomslider: {fileID: 315665498}
   max_randomslider: {fileID: 1753402300}
+  goal: {fileID: 568897913}
+  regulator: {fileID: 64376230}
+  score_text: {fileID: 432603580}
   freq_counter: 0
 --- !u!1 &101776331
 GameObject:
@@ -1827,7 +1831,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 432603578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48496507096d14e4494d0f919508d78f, type: 3}
   m_Name: 
@@ -2351,6 +2355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signal: {fileID: 85416741}
   goal_text: {fileID: 626307751}
+  time_value: 0
 --- !u!114 &568897914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,7 +2382,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9737e71ccbafedf4ab472fab81531c2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

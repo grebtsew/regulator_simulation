@@ -21,6 +21,12 @@ public class goal_movement : MonoBehaviour
     public Text goal_text;
     string goal_string = "";
     string random_regulator_string = "";
+    public float time_value = 0;
+
+    public void reset_score()
+    {
+        time_value = 0;
+    }
 
     // Use this for initialization
     void Start()
@@ -141,6 +147,8 @@ public class goal_movement : MonoBehaviour
                 this.transform.position = new Vector3(transform.position.x, curr);
                 break;
         }
+
+        time_value += Mathf.Abs(curr);
 
     }
 }

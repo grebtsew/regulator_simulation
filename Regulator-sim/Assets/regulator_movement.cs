@@ -18,7 +18,12 @@ public class regulator_movement : MonoBehaviour {
     float old_error = 0;
     float _dt = 1;
     public goal_movement goal;
+    public float time_value = 0;
 
+    public void reset_score()
+    {
+        time_value = 0;
+    }
 
     // Use this for initialization
     void Start () {
@@ -88,5 +93,7 @@ public class regulator_movement : MonoBehaviour {
                 break;
         }
 
-	}
+        time_value += Mathf.Abs(curr);
+
+    }
 }
