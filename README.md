@@ -13,7 +13,7 @@ I created runnables for windows.
 # Helpful code 
 https://gist.github.com/bradley219/5373998
 
-# Knows issues
+# Known issues
 
 1. To avoid divide by 0 error. We skip 0 values, resulting in weird regulator/goal sometimes.
 2. Some values on regulator can get outofbounds and then cause an error. To continue just press next.
