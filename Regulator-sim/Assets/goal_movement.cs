@@ -22,6 +22,7 @@ public class goal_movement : MonoBehaviour
     string goal_string = "";
     string random_regulator_string = "";
     public float time_value = 0;
+    public Text done_text;
 
     public void reset_score()
     {
@@ -78,9 +79,21 @@ public class goal_movement : MonoBehaviour
                 
         }
 
+        if(goal_text != null)
+        {
+
         goal_string = "Regulator : " + random_regulator_string + " kp : " + random_kp + " kd : " + random_kd + " ki : " + random_ki;
         goal_text.text = goal_string;
         Debug.Log(goal_string);
+        }
+
+    }
+
+    public void Update_Game_Score()
+    {
+        goal_string = "Regulator : " + random_regulator_string + " kp : " + random_kp + " kd : " + random_kd + " ki : " + random_ki;
+        done_text.text = goal_string;
+       
     }
 
     // Update is called once per frame

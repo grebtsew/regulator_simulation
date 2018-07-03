@@ -26,7 +26,15 @@ public class signal_movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        delta_signal =  valueslider.value  ;
+        if(valueslider != null)
+        {
+            delta_signal = valueslider.value;
+            
+        } else
+        {
+            delta_signal = 1;
+        }
+        
         
         // Random
         if (delta_signal == -1)
