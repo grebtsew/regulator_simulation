@@ -1,6 +1,6 @@
 # regulator_simulation
 Simulation of P, PD, PI and PID Regulators in unity 3d. Can be used to test regulator outputs depending on insignal and variable values.
-See screenshot below!
+See screenshot below! Green is regulator result, Yellow is goal/wanted and red is the input signal. Notice the score which basicly descibes the difference in values between goal and regulator over one pulse in percentage.
 
 ![Alt text](printscreen.png "The Game Printscreen!")
 
